@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>NO</h1>
+    <div class="btn-username">
+      <form id="form-input" @submit.prevent="submitUsername">
+        <input id="input" v-model="username" placeholder="Input Username" />
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "home",
-  components: {
-    HelloWorld
+  data() {
+    return {
+      username: ""
+    };
+  },
+  methods: {
+    submitUsername() {
+      alert(this.username);
+      this.username = "";
+    }
   }
 };
 </script>
+<style scoped>
+@import "../assets/scss/home.css";
+</style>
