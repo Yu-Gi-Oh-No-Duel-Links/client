@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     submitUsername() {
-      alert(this.username);
+      this.$socket.emit("register-user", this.username);
       this.username = "";
     }
   }
