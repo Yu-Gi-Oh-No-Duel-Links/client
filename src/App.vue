@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   created() {
     this.$router.replace("/");
@@ -14,21 +16,7 @@ export default {
     }
   },
   computed: {
-    username() {
-      return this.$store.state.username;
-    },
-    roomName() {
-      return this.$store.state.roomName;
-    },
-    cards() {
-      return this.$store.state.cards;
-    },
-    as() {
-      return this.$store.state.as;
-    },
-    errorMessage() {
-      return this.$store.state.errorMessage;
-    }
+    ...mapState(["username", "roomName", "cards", "as", "errorMessage"])
   },
   watch: {
     username(val) {
@@ -38,11 +26,13 @@ export default {
       else this.$router.push("/");
     },
     roomName(val) {
-      if (val && this.username)
-        if (this.$route.path != `/rooms/${val}`)
-          this.$router.push(`/rooms/${val}`);
-        else return;
-      else this.$route.path != `/`;
+      if (this.username)
+        if (val)
+          if (this.$route.path != `/rooms/${val}`)
+            this.$router.push(`/rooms/${val}`);
+          else return;
+        else this.$router.replace("/rooms");
+      else this.$router.replace("/");
     },
     cards(val) {
       if (val && val.length < 5) {
@@ -55,13 +45,6 @@ export default {
         this.$store.commit("CLEAR_ERROR");
       }
     }
-    // room(val) {
-    //   if (val && this.username)
-    //     if (this.$route.path != `/rooms/${val}`)
-    //       this.$router.push(`/rooms/${val}`);
-    //     else return;
-    //   else this.$route.path != `/`;
-    // }
   }
 };
 </script>
