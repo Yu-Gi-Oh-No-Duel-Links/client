@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <audio id="myAudio" controls autoplay loop style="display:none;">
+      <source src="../assets/audio/home.mp3" type="audio/mpeg" />
+    </audio>
     <h1>NO</h1>
     <div class="btn-username">
       <form id="form-input" @submit.prevent="submitUsername">
