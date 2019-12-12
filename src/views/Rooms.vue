@@ -1,5 +1,9 @@
 <template>
   <div>
+    <b-form inline @submit.prevent="createRoom">
+      <b-form-input v-model="roomName"></b-form-input>
+      <b-button>Create Room</b-button>
+    </b-form>
     <table>
       <thead>
         <tr>
@@ -27,8 +31,19 @@
 import { mapState } from "vuex";
 
 export default {
+  data() {
+    return {
+      roomName: ""
+    };
+  },
   computed: {
     ...mapState(["roomList", "username"])
+  },
+  methods: {
+    createRoom() {
+      this.$socket.emit("create-room", this.roomName, this.username);
+      this.roomName = "";
+    }
   },
   created() {
     this.$socket.emit("fetch-rooms");
