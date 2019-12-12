@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+div#characters {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+}
+
+#characters {
+  font-family: "Montserrat", sans-serif;
+  background: url("../img/character-bg.png") center repeat-y;
+  background-color: black;
+  padding-top: 50px;
+  padding-bottom: 15px;
+}
+
+#characters .character-series {
+  max-width: 980px;
+  margin: auto auto 0px auto;
+  display: block;
+  text-align: center;
+}
+
+#characters .character-series h1 {
+  color: red;
+}
+
+#characters .character-series h2 {
+  margin-top: 2em;
+  color: white;
+  margin-bottom: 2em;
+  background: #02154b url(../img/character-series_bk.png) left top no-repeat;
+  border: 2px solid #071ea2;
+  -webkit-box-shadow: 0 0 5px 3px rgba(0, 255, 255, 0.3), 0 0 1px 1px rgba(0, 255, 255, 0.4) inset;
+          box-shadow: 0 0 5px 3px rgba(0, 255, 255, 0.3), 0 0 1px 1px rgba(0, 255, 255, 0.4) inset;
+}
+
+#characters .character-series h2 span {
+  display: block;
+  background: url(../img/character-series_bk.png) right bottom no-repeat;
+  text-align: center;
+  font-weight: bold;
+  font-size: 120%;
+  padding: 0.4em 0 0.3em;
+  text-shadow: 0 0 10px #071ea2;
+}
+
+#characters .character-series .character-list {
+  padding-left: 0px;
+  letter-spacing: -0.4em;
+  margin-bottom: 0px;
+}
+
+#characters .character-series .character-list li {
+  letter-spacing: normal;
+  display: inline-block;
+}
+
+#characters .character-series .character-list li a {
+  display: block;
+  width: 140px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#characters .character-series .character-list li a img.hover {
+  display: block;
+  width: 100%;
+  vertical-align: bottom;
+  opacity: 0;
+}
+
+#characters .character-series .character-list li a img.hover:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+/*# sourceMappingURL=characters.css.map */

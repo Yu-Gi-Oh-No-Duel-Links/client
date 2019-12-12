@@ -96,6 +96,12 @@
   transition: 0.5s;
 }
 
+.btn-username:hover::after + #time-wizzard {
+  -webkit-transform: translate(275%, 50%);
+          transform: translate(275%, 50%);
+  opacity: 1;
+}
+
 #input:hover {
   cursor: pointer;
 }
