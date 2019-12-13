@@ -31,8 +31,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background: url("../img/ov_link_btn_bk.png") center top no-repeat;
   top: 45%;
   text-align: center;
@@ -98,7 +98,7 @@
 
 .btn-username:hover::after + #time-wizzard {
   -webkit-transform: translate(275%, 50%);
-          transform: translate(275%, 50%);
+  transform: translate(275%, 50%);
   opacity: 1;
 }
 
