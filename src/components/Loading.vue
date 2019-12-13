@@ -1,9 +1,22 @@
 <template>
-  <div class="body-loading">
-    <div class="loading">
-      <span>
-        <img src="../assets/img/loading.png" alt="loading" />
-      </span>
+  <div class="main-loading">
+    <div v-if="$route.path == '/loading'" class="fullscreen-video-wrap">
+      <video
+        id="vidio-bg"
+        src="../assets/video/loading.mp4"
+        muted
+        autoplay="true"
+        loop="true"
+      ></video>
+    </div>
+    <div class="header-overlay"></div>
+    <div class="body-loading">
+      <div class="loading">
+        <span>
+          <img src="../assets/img/loading.png" alt="loading" />
+          LOADING...
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -19,7 +32,7 @@ export default {
   created() {
     setTimeout(() => {
       this.goToHome();
-    }, 6000);
+    }, 15000);
   }
 };
 </script>

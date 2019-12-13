@@ -1,7 +1,11 @@
 <template>
   <div>
     <div v-if="$route.path == '/'" class="fullscreen-video-wrap">
-      <video id="vidio-bg" src="../assets/video/opyugi.mp4" autoplay="true"></video>
+      <video
+        id="vidio-bg"
+        src="../assets/video/opyugi.mp4"
+        autoplay="true"
+      ></video>
     </div>
     <router-view />
   </div>
