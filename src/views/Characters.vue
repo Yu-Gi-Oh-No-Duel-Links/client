@@ -3,6 +3,12 @@
     <audio id="myAudio" controls autoplay loop style="display:none;">
       <source src="../assets/audio/characters.mp3" type="audio/mpeg" />
     </audio>
+    <audio id="buttonHover" controls style="display:none;">
+      <source src="../assets/audio/hoverchar.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="buttonClick" controls style="display:none;">
+      <source src="../assets/audio/clickchar.mp3" type="audio/mpeg" />
+    </audio>
     <div class="character-series">
       <h1>Select Your Character</h1>
       <h2>
@@ -10,7 +16,13 @@
       </h2>
       <ul class="character-list">
         <li v-for="char in dm" :key="char.name">
-          <a :name="char.name" :style="char.style" @click="selectChar(char.image)">
+          <a
+            :name="char.name"
+            :style="char.style"
+            @mouseover="onSound"
+            @mouseleave="offSound"
+            @click="selectChar(char.image)"
+          >
             <img
               class="hover"
               src="https://www.konami.com/yugioh/duel_links/en/character/images/icon_hover.png"
@@ -24,7 +36,13 @@
       </h2>
       <ul class="character-list">
         <li v-for="char in gx" :key="char.name">
-          <a :name="char.name" :style="char.style" @click="selectChar(char.image)">
+          <a
+            :name="char.name"
+            :style="char.style"
+            @mouseover="onSound"
+            @mouseleave="offSound"
+            @click="selectChar(char.image)"
+          >
             <img
               class="hover"
               src="https://www.konami.com/yugioh/duel_links/en/character/images/icon_hover.png"
@@ -38,7 +56,13 @@
       </h2>
       <ul class="character-list">
         <li v-for="char in sd" :key="char.name">
-          <a :name="char.name" :style="char.style" @click="selectChar(char.image)">
+          <a
+            :name="char.name"
+            :style="char.style"
+            @mouseover="onSound"
+            @mouseleave="offSound"
+            @click="selectChar(char.image)"
+          >
             <img
               class="hover"
               src="https://www.konami.com/yugioh/duel_links/en/character/images/icon_hover.png"
@@ -304,7 +328,19 @@ export default {
   },
   methods: {
     selectChar(image) {
+      let audio = document.getElementById("buttonClick");
+      audio.play();
       alert(image);
+    },
+    onSound() {
+      this.soundOn = true;
+      let audio = document.getElementById("buttonHover");
+      audio.play();
+    },
+    offSound() {
+      this.soundOn = false;
+      let audio = document.getElementById("buttonHover");
+      audio.stop();
     }
   }
 };
