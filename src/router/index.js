@@ -44,6 +44,28 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "lobby" */ "../views/Lobby.vue")
+  },
+  {
+    path: "/win",
+    name: "WinCondition",
+    component: () =>
+      import(
+        /* webpackChunkName: "WinCondition" */ "../components/WinCondition.vue"
+      )
+  },
+  {
+    path: "/lose",
+    name: "LoseCondition",
+    component: () =>
+      import(
+        /* webpackChunkName: "LoseCondition" */ "../components/LoseCondition.vue"
+      )
+  },
+  {
+    path: "/close",
+    name: "Close",
+    component: () =>
+      import(/* webpackChunkName: "Close" */ "../components/Closing.vue")
   }
 ];
 
