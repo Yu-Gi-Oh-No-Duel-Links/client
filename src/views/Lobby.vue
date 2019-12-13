@@ -8,36 +8,41 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="room in roomList" :key="room.id">
-          <td v-on:click="selectRoom(room.name)">{{ room.name }}</td>
+        <tr v-for="room in roomList" :key="room">
+          <td>{{ room }}</td>
+          <td>
+            <button id="start-btn" v-on:click="enterRoom(room)">
+              Enter Room
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
-    <button id="start-btn" v-on:click="enterRoom">Enter Room</button>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   data() {
     return {
-      selectedRoom: "",
-      roomList: [
-        { id: 1, name: "room coba-coba" },
-        { id: 2, name: "room bikin-bikin" },
-        { id: 3, name: "room coba lagi" }
-      ]
+      selectedRoom: ""
     };
   },
+  computed: {
+    ...mapState(["roomList", "username"])
+  },
   methods: {
-    selectRoom(roomName) {
-      console.log("selectRoom");
-      this.selectedRoom = roomName;
-      console.log("this.selectedRoom => ", this.selectedRoom);
-    },
-    enterRoom () {
-      
+    enterRoom(roomName) {
+      this.$socket.emit("join-room", roomName, this.username);
+      // console.log("selectRoom");
+      // this.selectedRoom = roomName;
+      // console.log("this.selectedRoom => ", this.selectedRoom);
     }
+  },
+  created() {
+    this.$socket.emit("fetch-rooms");
   }
 };
 </script>

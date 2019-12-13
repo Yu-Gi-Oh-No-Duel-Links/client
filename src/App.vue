@@ -9,6 +9,8 @@ import { mapState } from "vuex";
 
 export default {
   created() {
+    // console.log(this.$router.history.current.path);
+    // if (this.$route.path !== "/")
     this.$router.replace("/");
     const username = localStorage.getItem("username");
     if (username) {
@@ -21,18 +23,18 @@ export default {
   watch: {
     username(val) {
       if (val)
-        if (this.$route.path != "/rooms") this.$router.push("/rooms");
+        if (this.$route.path != "/lobby") this.$router.push("/lobby");
         else return;
-      else this.$router.push("/");
+      else this.$router.push("/home");
     },
     roomName(val) {
       if (this.username)
         if (val)
-          if (this.$route.path != `/rooms/${val}`)
-            this.$router.push(`/rooms/${val}`);
+          if (this.$route.path != `/gameplay/${val}`)
+            this.$router.push(`/gameplay/${val}`);
           else return;
-        else this.$router.replace("/rooms");
-      else this.$router.replace("/");
+        else this.$router.replace("/lobby");
+      else this.$router.replace("/home");
     },
     cards(val) {
       if (val && val.length < 5) {

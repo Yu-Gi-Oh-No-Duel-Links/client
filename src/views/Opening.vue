@@ -14,15 +14,24 @@
 <script>
 export default {
   name: "Opening",
+  data() {
+    return {
+      timeout: null
+    };
+  },
   methods: {
     goToLoading() {
       this.$router.push("/loading");
     }
   },
   created() {
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       this.goToLoading();
-    }, 12000);
+    }, 3000);
+  },
+  beforeRouteLeave(to, from, next) {
+    clearTimeout(this.timeout);
+    next();
   }
 };
 </script>
