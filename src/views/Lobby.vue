@@ -1,23 +1,44 @@
 <template>
-  <div id="lobby">
-    <h4>Select One Room</h4>
-    <table class="table mx-auto" id="lobbyTable">
-      <thead>
+  <div class="lobby">
+    <audio id="myAudio" controls autoplay loop style="display:none;">
+      <source src="../assets/audio/home.mp3" type="audio/mpeg" />
+    </audio>
+    <h2 class="text-center">Create New Room</h2>
+    <div class="btn-roomname">
+      <form id="form-input" @submit.prevent="submitUsername">
+        <input id="input" v-model="username" placeholder="Input Room Name" />
+      </form>
+    </div>
+    <hr />
+    <h2 class="text-center mt-3">Room List</h2>
+    <div id="roomlist" class="mx-auto">
+      <table id="lobby-table" class="mx-auto">
         <tr>
-          <th scope="col">Rooms</th>
+          <td>Room coba-coba</td>
+          <td><button class="start-btn">Enter Room</button></td>
         </tr>
-      </thead>
-      <tbody>
-        <tr v-for="room in roomList" :key="room">
-          <td>{{ room }}</td>
-          <td>
-            <button id="start-btn" v-on:click="enterRoom(room)">
-              Enter Room
-            </button>
-          </td>
+        <tr>
+          <td>Room bikin-bikin</td>
+          <td><button class="start-btn">Enter Room</button></td>
         </tr>
-      </tbody>
-    </table>
+        <tr>
+          <td>Room bikin-bikin</td>
+          <td><button class="start-btn">Enter Room</button></td>
+        </tr>
+        <tr>
+          <td>Room bikin-bikin</td>
+          <td><button class="start-btn">Enter Room</button></td>
+        </tr>
+        <tr>
+          <td>Room bikin-bikin</td>
+          <td><button class="start-btn">Enter Room</button></td>
+        </tr>
+        <tr>
+          <td>Room bikin-bikin</td>
+          <td><button class="start-btn">Enter Room</button></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -48,45 +69,5 @@ export default {
 </script>
 
 <style scoped>
-#lobby {
-  background: url("../assets/img/lobby.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100vh;
-  padding-top: 80px;
-}
-
-#lobbyTable {
-  border: 1px solid black;
-  width: 60%;
-}
-
-#start-btn {
-  text-align: center;
-  display: inline-block;
-  margin: 5px;
-  font-weight: bold;
-  padding: 10px 0 10px 10px;
-  background-color: lightgray;
-  text-shadow: -1px -1px black, 1px 1px white;
-  color: gray;
-  border-radius: 7px;
-  box-shadow: 0 0.2em gray;
-  cursor: pointer;
-}
-
-#start-btn:hover {
-  background-color: red;
-  box-shadow: none;
-  position: relative;
-  top: 0.2em;
-}
-
-#start-btn:active {
-  box-shadow: none;
-  position: relative;
-  top: 0.2em;
-}
+@import "../assets/css/lobby.css";
 </style>
